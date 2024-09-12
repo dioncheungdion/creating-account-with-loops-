@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);                          // enter username
+        System.out.println("Enter a username: ");
+        String user = scanner.nextLine();
+
+        if (user.length() < 5 || user.length() > 20) {                     // checking username length
+            while (user.length() < 5) {
+                System.out.println("Username has to be more than 5 characters.\nPlease re-enter: ");
+                user = scanner.nextLine();
+            } while (user.length() > 20) {
+                System.out.println("Username has to be less than 20 characters.\nPlease re-enter: ");
+                user = scanner.nextLine();
+            }
+        }
+
+        System.out.println("Thanks!\nEnter a password: ");                    // enter password
+        String password = scanner.nextLine();
+
+        if (password.length() < 8 || password.length() > 20) {                 // checking password length
+            while (password.length() < 8) {
+                System.out.println("Password has to be more than 8 characters.\nPlease re-enter: ");
+                password = scanner.nextLine();
+            } while (password.length() > 20) {
+                System.out.println("Password has to be less than 20 characters.\nPlease re-enter: ");
+                password = scanner.nextLine();
+            }
+        }
+
+        System.out.println("Your account has been created.\nPlease enter your username again: ");      // logging in
+        String inputUser = scanner.nextLine();
+        int userCount = 0                                                        // limiting amount of username tries
+
+        while (!inputUser.equals(user)) {
+            System.out.printf("%s does not exist\nPlease re-enter: ",inputUser);
+            inputUser = scanner.nextLine();
+            userCount++;
+            if (userCount == 3) {                                                // username 3 tries, create new account?
+                System.out.println("You have tried 3 times, would you like to create a new account? (y/n) ");
+                char create = scanner.next().charAt(0);
+                if (create == 'y') {
+                    System.out.println("ok i will code that later");
+                } else if (create == 'n') {
+                    System.out.printf("Enter: ");
+                    inputUser = scanner.nextLine();
+                }
+
+            }
+        }
+
+        System.out.println("Enter your password: ");                                 // logging in password
+        String inputpass = scanner.nextLine();
+        int passCount = 0                                                        // limiting amount of password tries
+
+        while (!
+
+    }
+}
